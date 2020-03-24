@@ -40,7 +40,7 @@
 
 % If you want to create a function, establish the outputs and uncomment 
 % the following line and the end function line
-% <Outs> = function_template_main(<arg1>,...)4
+% <Outs> = function_template_main(<arg1>,...)
 clc
 clear
 close all
