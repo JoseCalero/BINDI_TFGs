@@ -1,11 +1,8 @@
 %% CARACTERISTICA: Sumatorio de una banda de frecuencias
 %
 
-function sum_frec = f_sum_frec(tiempos, fft_BVP, n_total_intervalos_frec)
+function sum_frec = f_sum_frec(banda_fft_signal)
 
-Finicio = tiempos(1)*n_total_intervalos_frec/64;
-Ffin = tiempos(end)*n_total_intervalos_frec/64;
-
-sum_frec = sum(fft_BVP(Finicio:Ffin));
+sum_frec = sum(banda_fft_signal);
 
 end
