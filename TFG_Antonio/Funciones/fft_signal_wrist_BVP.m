@@ -5,6 +5,7 @@ function [fft_signal_wrist_BVP, vector_frecuencia] = fft_signal_wrist_BVP(signal
 
 Transformada = fft(signal_wrist_BVP); % Valores absolutos de la transformada de fourier
 fft_signal_wrist_BVP = abs(Transformada);
+fft_signal_wrist_BVP = fft_signal_wrist_BVP.^2; % Pwelch
 
 %
 % bin_resoluton = fmuestreo/N  --> bin_res = 64/512 = 0.125 ///// 64/513 =

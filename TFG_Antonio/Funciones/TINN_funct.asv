@@ -28,8 +28,8 @@ end
 
 auxiliar = find(vector_repeticiones == 1);
 
-TINN_v = tiempos(1):tiempos(auxiliar(1));
+TINN_v = tiempos(1):auxiliar(1);
 
-TINN = (TINN_v(end)-TINN_v(1))*10 % En ms
+TINN = length(TINN_v)*10; % En ms
 
 end

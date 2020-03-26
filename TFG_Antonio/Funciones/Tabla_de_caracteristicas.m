@@ -24,7 +24,7 @@ archivos = ls(carpeta_archivos);
 
 %% LEEMOS Y ALMACENAMOS PACIENTE A PACIENTE DEL EXPERIMENTO DE WESAD
 %
-%tabla_caracteristicas = [];
+
 data = struct([]);
 sujeto = 0;
 
@@ -70,8 +70,6 @@ for i = 1:length(archivos)
             caracteristica_F = calculo_caracteristicas_Fdomain(j, ventanas, signal.wrist.BVP);
             label_sujeto = get_label(j, ventanas, VA, b, s, m1, a, m2);
             
-            
-            
             %
             % No puedo hacer un plot con este método de ejecución, el
             % tiempo de ejecución del programa es ~ 1h
@@ -90,20 +88,21 @@ for i = 1:length(archivos)
                 data{sujeto}.features(j,5) = caracteristica_T(5);
                 data{sujeto}.features(j,6) = caracteristica_T(6);
                 data{sujeto}.features(j,7) = caracteristica_T(7);
+                data{sujeto}.features(j,8) = caracteristica_T(8);
                 
                 %
                 % Características en Fdomain
                 %
                 
-                data{sujeto}.features(j,8) = caracteristica_F(1);
-                data{sujeto}.features(j,9) = caracteristica_F(2);
-                data{sujeto}.features(j,10) = caracteristica_F(3);
-                data{sujeto}.features(j,11) = caracteristica_F(4);
-                data{sujeto}.features(j,12) = caracteristica_F(5);
-                data{sujeto}.features(j,13) = caracteristica_F(6);
-                data{sujeto}.features(j,14) = caracteristica_F(7);
-                data{sujeto}.features(j,15) = caracteristica_F(8);
-                data{sujeto}.features(j,16) = caracteristica_F(9);
+                data{sujeto}.features(j,9) = caracteristica_F(1);
+                data{sujeto}.features(j,10) = caracteristica_F(2);
+                data{sujeto}.features(j,11) = caracteristica_F(3);
+                data{sujeto}.features(j,12) = caracteristica_F(4);
+                data{sujeto}.features(j,13) = caracteristica_F(5);
+                data{sujeto}.features(j,14) = caracteristica_F(6);
+                data{sujeto}.features(j,15) = caracteristica_F(7);
+                data{sujeto}.features(j,16) = caracteristica_F(8);
+                %data{sujeto}.features(j,17) = caracteristica_F(9);
                 
                 %
                 % Label de self-report asociado a dicha ventana
