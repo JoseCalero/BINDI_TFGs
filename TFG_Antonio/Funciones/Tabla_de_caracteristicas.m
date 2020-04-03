@@ -88,7 +88,7 @@ for i = 1:length(archivos)
                 data{sujeto}.features(j,5) = caracteristica_T(5);
                 data{sujeto}.features(j,6) = caracteristica_T(6);
                 data{sujeto}.features(j,7) = caracteristica_T(7);
-                data{sujeto}.features(j,8) = caracteristica_T(8);
+                %data{sujeto}.features(j,8) = caracteristica_T(8);
                 
                 %
                 % Características en Fdomain
@@ -102,13 +102,16 @@ for i = 1:length(archivos)
                 data{sujeto}.features(j,14) = caracteristica_F(6);
                 data{sujeto}.features(j,15) = caracteristica_F(7);
                 data{sujeto}.features(j,16) = caracteristica_F(8);
-                %data{sujeto}.features(j,17) = caracteristica_F(9);
+                data{sujeto}.features(j,17) = caracteristica_F(9);
+                data{sujeto}.features(j,18) = caracteristica_F(10);
+                data{sujeto}.features(j,19) = caracteristica_F(11);
+                data{sujeto}.features(j,20) = caracteristica_F(12);
                 
                 %
                 % Label de self-report asociado a dicha ventana
                 %
                 
-                data{sujeto}.features(j,17) = label_sujeto;
+                data{sujeto}.features(j,21) = label_sujeto;
                 
             end
         end

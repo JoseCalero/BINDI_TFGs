@@ -68,4 +68,17 @@ caracteristica(8) = LFnorm;
 HFnorm = HF_energia/(LF_energia+HF_energia);
 caracteristica(9) = HFnorm;
 
+%% POTENCIA RELATIVA DE LA COMPONENTE DE LA FRECUENCIA
+%
+%
+
+Rel_power_LF = relative_power(LF_energia, HF_energia, UHF_energia);
+caracteristica(10) = Rel_power_LF;
+
+Rel_power_HF = relative_power(HF_energia, LF_energia, UHF_energia);
+caracteristica(11) = Rel_power_HF;
+
+Rel_power_UHF = relative_power(UHF_energia, HF_energia, LF_energia);
+caracteristica(12) = Rel_power_UHF;
+
 end
