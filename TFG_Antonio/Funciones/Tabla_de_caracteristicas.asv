@@ -1,0 +1,134 @@
+%% SCRIPT QUE RECOGE Y GUARDA EN UNA TABLA 3D LAS CARACTERISTICAS
+%
+% La primera dimensión son las filas: valor de las caracteristicas
+% La segunda dimensión son las columnas: característica en cuestión
+% La tercera dimensión es el número de la tabla bidimensional: nº paciente
+%
+% Abrimos la dirección donde se encuentran nuestros archivos y guardamos en
+% un vector todos los nombres de los archivos de esta carpeta
+%
+
+clear
+clc
+
+cd;
+carpeta_archivos = cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+
+if strcmp(carpeta_archivos,cd)==1
+else
+    carpeta_archivos = cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+end
+
+archivos = ls(carpeta_archivos); 
+
+
+%% LEEMOS Y ALMACENAMOS PACIENTE A PACIENTE DEL EXPERIMENTO DE WESAD
+%
+
+data = struct([]);
+sujeto = 0;
+ventana = 1;
+
+for i = 1:length(archivos) 
+    
+    %
+    % Encontramos un archivo que empieza por S 
+    %
+    if(strcmp(archivos(i),'S') == 1)
+       
+        sujeto = sujeto + 1;
+        
+        cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+        archivo = cd(archivos(i,:));
+            
+        %
+        % Señal del paciente encontrado y self-reports (Valence - Arousal)
+        %
+        
+        load('out.mat');
+        load('valence_arousal');
+        
+        %
+        % Volvemos a la carpeta de archivos inicial
+        %
+        
+        cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
+        
+        %
+        % N de ventanas temporales de la señal escogida
+        %
+        
+        ventanas = Ventanas_8s(signal.wrist.BVP);
+        
+        [VA, b, s, m1, a, m2] = valence_arousal(label, valence, arousal);
+        
+        %
+        % Muestreamos ventana por ventana en una figura características
+        %
+        for j = 1:length(ventanas)-1
+            
+            caracteristica_T = calculo_caracteristicas_Tdomain(j, ventanas, signal.wrist.BVP);
+            caracteristica_F = calculo_caracteristicas_Fdomain(j, ventanas, signal.wrist.BVP);
+            [label_VA, label_estado] = get_label(j, ventanas, VA, b, s, m1, a, m2);
+            rqa = no_lineales(j, ventanas, signal.wrist.BVP);
+            
+            %
+            % No puedo hacer un plot con este método de ejecución, el
+            % tiempo de ejecución del programa es ~ 1h
+            %
+            
+            if label_sujeto ~= 0 
+                
+                %
+                %Características en Tdomain
+                %
+                
+                data{sujeto}.features(ventana,1) = caracteristica_T(1);
+                data{sujeto}.features(ventana,2) = caracteristica_T(2);
+                data{sujeto}.features(ventana,3) = caracteristica_T(3);
+                data{sujeto}.features(ventana,4) = caracteristica_T(4);
+                data{sujeto}.features(ventana,5) = caracteristica_T(5);
+                data{sujeto}.features(ventana,6) = caracteristica_T(6);
+                data{sujeto}.features(ventana,7) = caracteristica_T(7);
+                %data{sujeto}.features(ventana,8) = caracteristica_T(8);
+                
+                %
+                % Características en Fdomain
+                %
+                
+                data{sujeto}.features(ventana,9) = caracteristica_F(1);
+                data{sujeto}.features(ventana,10) = caracteristica_F(2);
+                data{sujeto}.features(ventana,11) = caracteristica_F(3);
+                data{sujeto}.features(ventana,12) = caracteristica_F(4);
+                data{sujeto}.features(ventana,13) = caracteristica_F(5);
+                data{sujeto}.features(ventana,14) = caracteristica_F(6);
+                data{sujeto}.features(ventana,15) = caracteristica_F(7);
+                data{sujeto}.features(ventana,16) = caracteristica_F(8);
+                data{sujeto}.features(ventana,17) = caracteristica_F(9);
+                data{sujeto}.features(ventana,18) = caracteristica_F(10);
+                data{sujeto}.features(ventana,19) = caracteristica_F(11);
+                data{sujeto}.features(ventana,20) = caracteristica_F(12);
+                
+                %
+                % Características no lineales RQA
+                %
+                
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                
+                %
+                % Label de self-report asociado a dicha ventana 
+                % Label del estado inducido
+                %
+                
+                data{sujeto}.features(ventana,2) = label_VA;
+                data{sujeto}.features(ventana,2) = label_estado;
+                
+                ventana = ventana + 1;
+            end
+        end
+    end 
+end
