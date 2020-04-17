@@ -77,7 +77,7 @@ for i = 1:length(archivos)
             % tiempo de ejecución del programa es ~ 1h
             %
             
-            if label_VA ~= 0 
+            if label_sujeto ~= 0 
                 
                 %
                 %Características en Tdomain
@@ -113,20 +113,19 @@ for i = 1:length(archivos)
                 % Características no lineales RQA
                 %
                 
-                data{sujeto}.features(ventana,21) = rqa(1);
-                data{sujeto}.features(ventana,22) = rqa(2);
-                data{sujeto}.features(ventana,23) = rqa(3);
-                data{sujeto}.features(ventana,24) = rqa(4);
-                data{sujeto}.features(ventana,25) = rqa(5);
-                data{sujeto}.features(ventana,26) = rqa(6);
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
+                data{sujeto}.features(ventana,21) = 
                 
                 %
                 % Label de self-report asociado a dicha ventana 
                 % Label del estado inducido
                 %
                 
-                data{sujeto}.features(ventana,27) = label_VA;
-                data{sujeto}.features(ventana,28) = label_estado;
+                data{sujeto}.features(ventana,2) = label_VA;
+                data{sujeto}.features(ventana,2) = label_estado;
                 
                 ventana = ventana + 1;
             end
