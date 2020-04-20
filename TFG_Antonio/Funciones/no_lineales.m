@@ -4,7 +4,7 @@ function rqa = no_lineales(n, ventanas, signal)
 
       % Determining embedding dimension m and time lag (delay time) t
       % EQ1
-      signal_ventana = signal(ventanas(n)):signal(ventanas(n+1));
+      signal_ventana = signal(ventanas(n):ventanas(n+1));
       [y,~,~]=phaseSpaceReconstruction(signal_ventana,'MaxLag',500);
 
       % Color recurrence plot
