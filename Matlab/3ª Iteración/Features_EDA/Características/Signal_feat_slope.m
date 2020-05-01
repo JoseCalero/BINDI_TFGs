@@ -1,6 +1,6 @@
 function slope = Signal_feat_slope(Signal)
 
-y_line = transpose(Signal); 
+y_line = Signal'; 
 
 x_line = linspace (1, length(Signal), length(Signal));
 

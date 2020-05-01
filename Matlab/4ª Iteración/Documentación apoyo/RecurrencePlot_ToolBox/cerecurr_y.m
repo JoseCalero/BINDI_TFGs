@@ -55,17 +55,17 @@ rmax=max(max(buffer));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %if nargout == 0
-    figure('Position',[100 100 550 400]);
-    imagesc(buffer);
-    colormap Jet;
-    colorbar;
-    axis image;    
-    xlabel('Time Index','FontSize',10,'FontWeight','bold');
-    ylabel('Time Index','FontSize',10,'FontWeight','bold');
-    title('Recurrence Plot','FontSize',10,'FontWeight','bold');
-    get(gcf,'CurrentAxes');
-    set(gca,'YDir','normal')
-    set(gca,'LineWidth',2,'FontSize',10,'FontWeight','bold');
+    %figure('Position',[100 100 550 400]);
+    %imagesc(buffer);
+    %colormap Jet;
+    %colorbar;
+    %axis image;    
+    %xlabel('Time Index','FontSize',10,'FontWeight','bold');
+    %ylabel('Time Index','FontSize',10,'FontWeight','bold');
+    %title('Recurrence Plot','FontSize',10,'FontWeight','bold');
+    %get(gcf,'CurrentAxes');
+    %set(gca,'YDir','normal')
+    %set(gca,'LineWidth',2,'FontSize',10,'FontWeight','bold');
 end
 
 
