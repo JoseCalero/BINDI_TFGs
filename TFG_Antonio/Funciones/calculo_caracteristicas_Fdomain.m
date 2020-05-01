@@ -13,6 +13,7 @@ signal_wrist_BVP = signal_wrist_completa(ventanas(n):ventanas(n+1));
 n_total_intervalos_frec = length(signal_wrist_BVP);
 [fft_BVP_imagen, vector_frecuencia_imagen] = fft_signal_wrist_BVP(signal_wrist_BVP, n_total_intervalos_frec);
 
+
 %% NOS QUEDAMOS CON LA IMAGEN IZQUIERDA DE LA FIGURA
 %
 %

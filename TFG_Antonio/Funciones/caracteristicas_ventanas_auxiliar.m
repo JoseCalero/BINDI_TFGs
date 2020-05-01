@@ -1,16 +1,20 @@
 %% FUNCION QUE IMPRIME VENTANA X VENTANA
 %
 
-cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S2');
+clear
+clc
+
+cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S9');
 
 load('out.mat');
 
-cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
 
 %%  Ventana n a muestrear
 %
 %
-n = 340;
+
+n = 200;
 ventanas = Ventanas_8s(signal.wrist.BVP);
 
 
@@ -18,6 +22,7 @@ ventanas = Ventanas_8s(signal.wrist.BVP);
 %
 %
 caracteristica = calculo_caracteristicas_Tdomain(n, ventanas, signal.wrist.BVP);
+caracteristica2 = calculo_caracteristicas_Fdomain(n, ventanas, signal.wrist.BVP);
 
 
 %% Ventanas temporales de nuestra señal

@@ -1,4 +1,3 @@
-
 %% SCRIPT QUE RECOGE Y GUARDA EN UNA TABLA 3D LAS CARACTERISTICAS
 %
 % La primera dimensión son las filas: valor de las caracteristicas
@@ -97,37 +96,37 @@ for i = 1:length(archivos)
                 % Características en Fdomain
                 %
                 
-                data{sujeto}.features(ventana,9) = caracteristica_F(1);
-                data{sujeto}.features(ventana,10) = caracteristica_F(2);
-                data{sujeto}.features(ventana,11) = caracteristica_F(3);
-                data{sujeto}.features(ventana,12) = caracteristica_F(4);
-                data{sujeto}.features(ventana,13) = caracteristica_F(5);
-                data{sujeto}.features(ventana,14) = caracteristica_F(6);
-                data{sujeto}.features(ventana,15) = caracteristica_F(7);
-                data{sujeto}.features(ventana,16) = caracteristica_F(8);
-                data{sujeto}.features(ventana,17) = caracteristica_F(9);
-                data{sujeto}.features(ventana,18) = caracteristica_F(10);
-                data{sujeto}.features(ventana,19) = caracteristica_F(11);
-                data{sujeto}.features(ventana,20) = caracteristica_F(12);
+                data{sujeto}.features(ventana,8) = caracteristica_F(1);
+                data{sujeto}.features(ventana,9) = caracteristica_F(2);
+                data{sujeto}.features(ventana,10) = caracteristica_F(3);
+                data{sujeto}.features(ventana,11) = caracteristica_F(4);
+                data{sujeto}.features(ventana,12) = caracteristica_F(5);
+                data{sujeto}.features(ventana,13) = caracteristica_F(6);
+                data{sujeto}.features(ventana,14) = caracteristica_F(7);
+                data{sujeto}.features(ventana,15) = caracteristica_F(8);
+                data{sujeto}.features(ventana,16) = caracteristica_F(9);
+                data{sujeto}.features(ventana,17) = caracteristica_F(10);
+                data{sujeto}.features(ventana,18) = caracteristica_F(11);
+                data{sujeto}.features(ventana,19) = caracteristica_F(12);
                 
                 %
                 % Características no lineales RQA
                 %
                 
-                data{sujeto}.features(ventana,21) = rqa(1);
-                data{sujeto}.features(ventana,22) = rqa(2);
-                data{sujeto}.features(ventana,23) = rqa(3);
-                data{sujeto}.features(ventana,24) = rqa(4);
-                data{sujeto}.features(ventana,25) = rqa(5);
-                data{sujeto}.features(ventana,26) = rqa(6);
+                data{sujeto}.features(ventana,20) = rqa(1);
+                data{sujeto}.features(ventana,21) = rqa(2);
+                data{sujeto}.features(ventana,22) = rqa(3);
+                data{sujeto}.features(ventana,23) = rqa(4);
+                data{sujeto}.features(ventana,24) = rqa(5);
+                data{sujeto}.features(ventana,25) = rqa(6);
                 
                 %
                 % Label de self-report asociado a dicha ventana 
                 % Label del estado inducido
                 %
                 
-                data{sujeto}.features(ventana,27) = label_VA;
-                data{sujeto}.features(ventana,28) = label_estado;
+                data{sujeto}.features(ventana,26) = label_VA;
+                data{sujeto}.features(ventana,27) = label_estado;
                 
                 ventana = ventana + 1;
             end
