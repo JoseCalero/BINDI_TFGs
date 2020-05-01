@@ -29,14 +29,14 @@ function x = tdrecurr_y(cbuffer,thrhd)
 x=[i j];
 
 %if nargout == 0
-    figure('Position',[100 100 550 400]);
-    plot(x(:,1),x(:,2),'k.','MarkerSize',2);
-    xlim([0,m]);
-    ylim([0,n]);
-    xlabel('Time Index','FontSize',10,'FontWeight','bold');
-    ylabel('Time Index','FontSize',10,'FontWeight','bold');
-    title('Recurrence Plot','FontSize',10,'FontWeight','bold');
-    get(gcf,'CurrentAxes');
-    set(gca,'LineWidth',2,'FontSize',10,'FontWeight','bold');
+    %figure('Position',[100 100 550 400]);
+    %plot(x(:,1),x(:,2),'k.','MarkerSize',2);
+    %xlim([0,m]);
+    %ylim([0,n]);
+    %xlabel('Time Index','FontSize',10,'FontWeight','bold');
+    %ylabel('Time Index','FontSize',10,'FontWeight','bold');
+    %title('Recurrence Plot','FontSize',10,'FontWeight','bold');
+    %get(gcf,'CurrentAxes');
+    %set(gca,'LineWidth',2,'FontSize',10,'FontWeight','bold');
     %grid on;
 end

@@ -20,7 +20,7 @@ for n=1 : length(Signal)
     
 end
 
-std = sqrt (numerador/length(Signal));
+std = sqrt (numerador/(length(Signal)-1));
 
 end
 
