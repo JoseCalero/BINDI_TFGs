@@ -1,40 +1,35 @@
 %% CALCULO DE CARACTERISTICAS EN FREQUENCY-DOMAIN
 %
 
-function caracteristica = calculo_caracteristicas_Fdomain(n, ventanas, signal_wrist_completa)
-%% SEÑAL BVP EN EL VENTANADO DE 8 SEGUNDOS
-%
-%
-signal_wrist_BVP = signal_wrist_completa(ventanas(n):ventanas(n+1));
-
+function caracteristica = calculo_caracteristicas_Fdomain(HRV)
 %% TRANSFORMAMOS LA SEÑAL A F-DOMAIN CON FOURIER
 %
 %
-n_total_intervalos_frec = length(signal_wrist_BVP);
-[fft_BVP_imagen, vector_frecuencia_imagen] = fft_signal_wrist_BVP(signal_wrist_BVP, n_total_intervalos_frec);
+n_total_intervalos_frec_HRV = length(HRV);
+[fft_HRV, vector_frecuencia] = fft_signal_wrist_BVP(HRV, n_total_intervalos_frec_HRV);
 
 
 %% NOS QUEDAMOS CON LA IMAGEN IZQUIERDA DE LA FIGURA
 %
 %
-[fft_BVP, vector_frecuencia] = fft_BVP_sin_imagen(fft_BVP_imagen, vector_frecuencia_imagen);
+%[fft_HRV, vector_frecuencia] = fft_BVP_sin_imagen(fft_HRV_imagen, vector_frecuencia_imagen);
 
 %% SACAMOS LAS BANDAS DE FRECUENCIA DE LA SEÑAL PARA LOS CALCULOS
 %
 %
-[LF_signal, HF_signal, UHF_signal] = bandas_frec(fft_BVP, vector_frecuencia);
+[LF_signal, HF_signal, UHF_signal] = bandas_frec(fft_HRV, vector_frecuencia);
 
 %% OPERACIONES DE SUMATORIO DE LAS BANDAS DE FRECUENCIA
 %
 %
 
-sum_LF = f_sum_frec(LF_signal);
+sum_LF = f_sum_frec(LF_signal)*100;
 caracteristica(1) = sum_LF;
 
-sum_HF = f_sum_frec(HF_signal);
+sum_HF = f_sum_frec(HF_signal)*100;
 caracteristica(2) = sum_HF;
 
-sum_UHF = f_sum_frec(UHF_signal);
+sum_UHF = f_sum_frec(UHF_signal)*100;
 caracteristica(3) = sum_UHF;
 
 %% ENERGÍA DE LAS BANDAS DE FRECUENCIA
@@ -72,6 +67,7 @@ caracteristica(9) = HFnorm;
 %% POTENCIA RELATIVA DE LA COMPONENTE DE LA FRECUENCIA
 %
 %
+
 
 Rel_power_LF = relative_power(LF_energia, HF_energia, UHF_energia);
 caracteristica(10) = Rel_power_LF;

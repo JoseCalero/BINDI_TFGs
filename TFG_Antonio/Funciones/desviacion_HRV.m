@@ -1,7 +1,8 @@
-function std_HRV = desviacion_HRV(HRV_mean, pulsos_totales, numero_de_pulso)
+function std_HRV = desviacion_HRV(HRV_mean, HRV)
 
-i = 2:pulsos_totales;
+i = 1:length(HRV);
 
-std_HRV = sqrt(sum((((1/64)*numero_de_pulso(i)-(1/64)*numero_de_pulso(i-1))-HRV_mean).^2)/pulsos_totales); 
+std_HRV = sqrt(sum((abs(HRV(i) - HRV_mean)).^2)/length(HRV)); 
+%std_HRV_comprobacion = std(HRV);
 
 end

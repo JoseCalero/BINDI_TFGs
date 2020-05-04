@@ -131,6 +131,6 @@ for i = 1:length(archivos)
                 ventana = ventana + 1;
             end
         end
-        ventana = 1;
+        ventana = 
     end 
 end
