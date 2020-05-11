@@ -1,6 +1,6 @@
 %% CALCULO DE CARACTERISTICAS PARA UNA VENTANA
 
-function [caracteristica, HRV] = calculo_caracteristicas_Tdomain(n, ventanas, signal_wrist_BVP)
+function [caracteristica, HRV, vector_pos] = calculo_caracteristicas_Tdomain(n, ventanas, signal_wrist_BVP)
 %% VARIABLES AUXILIARES PARA LA OBTENCIÓN DE CARACTERÍSTICAS
 %
 %
@@ -10,6 +10,7 @@ function [caracteristica, HRV] = calculo_caracteristicas_Tdomain(n, ventanas, si
 %% HR = 60 / P-P interval - RESPECTO AL TOTAL DE LA VENTANA
 %
 %
+
 [HR_mean, HR] = media_HR(pulsos_totales, numero_de_pulso);
 caracteristica(1) = HR_mean;
 
@@ -20,7 +21,8 @@ caracteristica(2) = HR_std;
 %% HRV: Time interval between heartbeats
 %
 %
-[HRV_mean, HRV] = media_HRV(pulsos_totales, numero_de_pulso);
+
+[HRV_mean, HRV, vector_pos] = media_HRV(pulsos_totales, numero_de_pulso);
 caracteristica(3) = HRV_mean;
 
 HRV_std = desviacion_HRV(HRV_mean, HRV);
@@ -30,7 +32,8 @@ caracteristica(4) = HRV_std;
 %% HRV_RMS
 %
 %
-HRV_rms = rms_HRV(pulsos_totales, numero_de_pulso);
+
+HRV_rms = rms_HRV(HRV);
 caracteristica(5) = HRV_rms;
 
 

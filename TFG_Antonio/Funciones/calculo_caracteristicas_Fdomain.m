@@ -1,22 +1,20 @@
 %% CALCULO DE CARACTERISTICAS EN FREQUENCY-DOMAIN
 %
 
-function caracteristica = calculo_caracteristicas_Fdomain(HRV)
+function caracteristica = calculo_caracteristicas_Fdomain(HRV, vector_pos)
 %% TRANSFORMAMOS LA SEÑAL A F-DOMAIN CON FOURIER
 %
 %
-n_total_intervalos_frec_HRV = length(HRV);
-[fft_HRV, vector_frecuencia] = fft_signal_wrist_BVP(HRV, n_total_intervalos_frec_HRV);
 
-
-%% NOS QUEDAMOS CON LA IMAGEN IZQUIERDA DE LA FIGURA
-%
-%
-%[fft_HRV, vector_frecuencia] = fft_BVP_sin_imagen(fft_HRV_imagen, vector_frecuencia_imagen);
+[fft_HRV, vector_frecuencia] = fft_signal_wrist_BVP(HRV, vector_pos);
 
 %% SACAMOS LAS BANDAS DE FRECUENCIA DE LA SEÑAL PARA LOS CALCULOS
 %
 %
+
+% TEAP: BVP_feat_extr()
+fft_HRV = fft_HRV/sum(fft_HRV);
+
 [LF_signal, HF_signal, UHF_signal] = bandas_frec(fft_HRV, vector_frecuencia);
 
 %% OPERACIONES DE SUMATORIO DE LAS BANDAS DE FRECUENCIA

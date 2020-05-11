@@ -67,8 +67,8 @@ for i = 1:length(archivos)
         %
         for j = 1:length(ventanas)-1
             
-            [caracteristica_T, HRV] = calculo_caracteristicas_Tdomain(j, ventanas, signal.wrist.BVP);
-            caracteristica_F = calculo_caracteristicas_Fdomain(HRV);
+            [caracteristica_T, HRV, vector_pos] = calculo_caracteristicas_Tdomain(j, ventanas, signal.wrist.BVP);
+            caracteristica_F = calculo_caracteristicas_Fdomain(HRV, vector_pos);
             [label_VA, label_estado] = get_label(j, ventanas, VA, b, s, m1, a, m2);
             rqa = no_lineales(j, ventanas, signal.wrist.BVP);
             

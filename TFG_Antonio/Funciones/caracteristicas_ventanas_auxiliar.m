@@ -4,7 +4,7 @@
 clear
 clc
 
-cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S8');
+cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S9');
 
 load('out.mat');
 
@@ -14,15 +14,15 @@ cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
 %
 %
 
-n = 1;
+n = 420;
 ventanas = Ventanas_8s(signal.wrist.BVP);
 
 
 %% CALCULO DE CARACTERISTICAS
 %
 %
-[caracteristica, HRV] = calculo_caracteristicas_Tdomain(n, ventanas, signal.wrist.BVP);
-caracteristica2 = calculo_caracteristicas_Fdomain(HRV);
+[caracteristica, HRV, vector_pos] = calculo_caracteristicas_Tdomain(n, ventanas, signal.wrist.BVP);
+caracteristica2 = calculo_caracteristicas_Fdomain(HRV, vector_pos);
 
 
 %% Ventanas temporales de nuestra señal
