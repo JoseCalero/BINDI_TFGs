@@ -14,7 +14,7 @@ cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
 %
 %
 
-n = 200;
+n = 2000;
 ventanas = Ventanas_8s(signal.wrist.BVP);
 
 
@@ -23,7 +23,7 @@ ventanas = Ventanas_8s(signal.wrist.BVP);
 %
 [caracteristica, HRV, vector_pos] = calculo_caracteristicas_Tdomain(n, ventanas, signal.wrist.BVP);
 caracteristica2 = calculo_caracteristicas_Fdomain(HRV, vector_pos);
-rqa = no_lineales(n, ventanas, signal.wrist.BVP);
+
 
 %% Ventanas temporales de nuestra señal
 %

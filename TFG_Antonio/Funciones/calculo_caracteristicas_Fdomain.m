@@ -12,7 +12,7 @@ function caracteristica = calculo_caracteristicas_Fdomain(HRV, vector_pos)
 %
 %
 
-% TEAP: BVP_feat_extr()
+% TEAP function: BVP_feat_extr()
 fft_HRV = fft_HRV/sum(fft_HRV);
 
 [LF_signal, HF_signal, UHF_signal] = bandas_frec(fft_HRV, vector_frecuencia);
@@ -33,7 +33,6 @@ caracteristica(3) = sum_UHF;
 %% ENERGÍA DE LAS BANDAS DE FRECUENCIA
 %
 %
-
 LF_energia = log(sum_LF);
 caracteristica(4) = LF_energia;
 
@@ -47,7 +46,7 @@ caracteristica(6) = UHF_energia;
 %
 %
 
-Ratio_LFHF = LF_energia/HF_energia;
+Ratio_LFHF = abs(LF_energia/HF_energia);
 caracteristica(7) = Ratio_LFHF;
 
 %% LF Y HF NORMALIZADAS
@@ -56,24 +55,23 @@ caracteristica(7) = Ratio_LFHF;
 % HFnorm = HF/(LF+HF)
 %
 
-LFnorm = LF_energia/(LF_energia+HF_energia);
+LFnorm = abs(LF_energia/(LF_energia+HF_energia));
 caracteristica(8) = LFnorm;
 
-HFnorm = HF_energia/(LF_energia+HF_energia);
+HFnorm = abs(HF_energia/(LF_energia+HF_energia));
 caracteristica(9) = HFnorm;
 
 %% POTENCIA RELATIVA DE LA COMPONENTE DE LA FRECUENCIA
 %
 %
 
-
-Rel_power_LF = relative_power(LF_energia, HF_energia, UHF_energia);
+Rel_power_LF = abs(relative_power(LF_energia, HF_energia, UHF_energia));
 caracteristica(10) = Rel_power_LF;
 
-Rel_power_HF = relative_power(HF_energia, LF_energia, UHF_energia);
+Rel_power_HF = abs(relative_power(HF_energia, LF_energia, UHF_energia));
 caracteristica(11) = Rel_power_HF;
 
-Rel_power_UHF = relative_power(UHF_energia, HF_energia, LF_energia);
+Rel_power_UHF = abs(relative_power(UHF_energia, HF_energia, LF_energia));
 caracteristica(12) = Rel_power_UHF;
 
 end
