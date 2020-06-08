@@ -1,7 +1,7 @@
 %% BANDAS DE FRECUENCIA
 %
 
-function [LF_signal, HF_signal, UHF_signal] = bandas_frec(fft_BVP, vector_frecuencia)
+function [LF_signal, HF_signal, UHF_signal] = bandas_frec(fft_HRV, vector_frecuencia)
 %
 % Ahora ya podemos trabajar con de la gráfica directamente
 % ULF: 0,01 Hz - 0,04 Hz --> omitimos la banda de ULF por su resolución en
@@ -24,29 +24,41 @@ aux1 = 1;
 aux2 = 1;
 aux3 = 1;
 
-for n = 1:length(fft_BVP)
+for n = 1:length(fft_HRV)
     %
     % LF
     %
-   if vector_frecuencia(n) > 0.04 && vector_frecuencia(n) <= 0.15 
-       LF_signal(aux1) = fft_BVP(n);
+   if vector_frecuencia(n) >= 0.04 && vector_frecuencia(n) <= 0.15 
+       LF_signal(aux1) = fft_HRV(n);
        aux1 = aux1 + 1;
    end
    %
    % HF
    %
    if vector_frecuencia(n) > 0.15 && vector_frecuencia(n) <= 0.4
-       HF_signal(aux2) = fft_BVP(n);
+       HF_signal(aux2) = fft_HRV(n);
        aux2 = aux2 + 1;
    end
    %
    % UHF
    %
    if vector_frecuencia(n) > 0.4 && vector_frecuencia(n) <= 1 
-       UHF_signal(aux3) = fft_BVP(n);
+       UHF_signal(aux3) = fft_HRV(n);
        aux3 = aux3 + 1;
    end
    
+end
+
+if aux1 == 1
+    LF_signal(aux1) = 0;
+end
+
+if aux2 == 1
+    HF_signal(aux2) = 0;
+end
+
+if aux3 == 1
+    UHF_signal(aux3) = 0;
 end
 
 end

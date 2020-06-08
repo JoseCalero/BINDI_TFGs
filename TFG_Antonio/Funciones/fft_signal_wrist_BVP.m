@@ -1,18 +1,35 @@
 %% FUNCION QUE PERMITE HACER LA TRANSFORMADA DE LA SEÑAL
 %
 
-function [fft_signal_wrist_BVP, vector_frecuencia] = fft_signal_wrist_BVP(signal_wrist_BVP, n_total_intervalos_frec)
 
-Transformada = fft(signal_wrist_BVP); % Valores absolutos de la transformada de fourier
-fft_signal_wrist_BVP = abs(Transformada);
-fft_signal_wrist_BVP = fft_signal_wrist_BVP.^2; % Pwelch
+function [fft_signal_HRV, vector_frecuencia] = fft_signal_wrist_BVP(HRV, vector_pos)
 
+vector_pos = vector_pos./64;
+
+% Plomb nos interpola valores de la señal estimando nuevos entre las
+% posiciones dadas vector_pos y nos amplia el vector de frec
 %
-% bin_resoluton = fmuestreo/N  --> bin_res = 64/512 = 0.125 ///// 64/513 =
-% 0.1248
+% Hace el mismo trabajo que pwelch para datos perdidos
 %
 
-vector_de_intervalos = (0:n_total_intervalos_frec-1); % Vector de intervalos (matlab representa a partir de 1)
-vector_frecuencia = vector_de_intervalos*64/n_total_intervalos_frec; % Vector de las frecuencias reales
+[fft_signal_HRV, f] = plomb(HRV, vector_pos);
 
+% Si no hiciéramos Pwelch:
+%
+%Transformada = fft(HRV2); 
+%fft_signal_HRV = abs(Transformada);
+%fft_signal_HRV = fft_signal_HRV.^2; 
+
+% Nota: Pwelch no se puede hacer con menos de 8 muestras
+%
+%
+% bin_resoluton = fmuestreo/N  --> bin_res = 64/512 = 0.125 
+%
+
+%fs = n_total_intervalos_frec/8; % n muestras x segundo = fs (Hz)
+
+vector_frecuencia = f; % Vector de frec(matlab representa a partir de 1)
+
+%vector_de_intervalos*fs/n_total_intervalos_frec; % Vector de las frecuencias reales
+    
 end
