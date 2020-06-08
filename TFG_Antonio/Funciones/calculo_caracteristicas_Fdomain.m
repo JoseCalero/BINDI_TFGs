@@ -33,13 +33,13 @@ caracteristica(3) = sum_UHF;
 %% ENERGÍA DE LAS BANDAS DE FRECUENCIA
 %
 %
-LF_energia = log(sum_LF);
+LF_energia = abs(log(sum_LF));
 caracteristica(4) = LF_energia;
 
-HF_energia = log(sum_HF);
+HF_energia = abs(log(sum_HF));
 caracteristica(5) = HF_energia;
 
-UHF_energia = log(sum_UHF);
+UHF_energia = abs(log(sum_UHF));
 caracteristica(6) = UHF_energia;
 
 %% POTENCIA RELATIVA LF/HF

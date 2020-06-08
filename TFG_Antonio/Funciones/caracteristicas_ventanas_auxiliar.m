@@ -4,7 +4,7 @@
 clear
 clc
 
-cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S9');
+cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S10');
 
 load('out.mat');
 
@@ -14,7 +14,7 @@ cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
 %
 %
 
-n = 200;
+n = 385;
 ventanas = Ventanas_8s(signal.wrist.BVP);
 
 

@@ -58,7 +58,7 @@ for i = 1:length(archivos)
         % N de ventanas temporales de la señal escogida
         %
         
-        ventanas = Ventanas_8s(signal.wrist.BVP);
+        ventanas = Ventanas_16s(signal.wrist.BVP);
         
         [VA, b, s, m1, a, m2] = valence_arousal(label, valence, arousal);
         
