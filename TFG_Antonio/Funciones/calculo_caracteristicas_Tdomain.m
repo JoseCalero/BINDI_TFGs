@@ -49,7 +49,7 @@ caracteristica(7) = pNN50;
 % Hay que guardar en un vector los datos de tiempos
 % y en otro el número de veces que éstos se repiten
 
-%TINN = TINN_funct(pulsos_totales, numero_de_pulso);
-%caracteristica(8) = TINN;
+TINN = TINN_funct(pulsos_totales, numero_de_pulso);
+caracteristica(8) = TINN;
 
 end

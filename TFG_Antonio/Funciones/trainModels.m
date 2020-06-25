@@ -77,8 +77,8 @@ function  [result] = trainModels(features, labels, varargin)
       case 3
         disp('WESAD Open BBDD simulation running');
 		%write-down the patients you need from your features matrix
-        patients_open = [1,2,3,4,5]; % [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-        patients = 15;
+        patients_open = [1];%[1,2,3,4,5] % [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        patients = 1;%15;
         trials   = 5;        
   end
 

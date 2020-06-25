@@ -4,7 +4,7 @@
 clear
 clc
 
-cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S10');
+cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD\S11');
 
 load('out.mat');
 
@@ -14,8 +14,8 @@ cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
 %
 %
 
-n = 385;
-ventanas = Ventanas_8s(signal.wrist.BVP);
+n = 153;
+ventanas = Ventanas_16s(signal.wrist.BVP);
 
 
 %% CALCULO DE CARACTERISTICAS
@@ -28,7 +28,7 @@ rqa = no_lineales(n, ventanas, signal.wrist.BVP);
 %% Ventanas temporales de nuestra señal
 %
 %
-ventanas = Ventanas_8s(signal.wrist.BVP);
+ventanas = Ventanas_16s(signal.wrist.BVP);
 
 
 %% FUNCION FINAL DE MUESTREO DE VENTANA
