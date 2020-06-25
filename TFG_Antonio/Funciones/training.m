@@ -1,47 +1,38 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Entrenando el modelo
-% ...trainModels function
-% - S: Sample number (The samples come from different or the same window)
-% - F: Feature number
-% - P: Patient number
-% labels is a tridimensional matrix Sx1xP. Must be cell type
-% - S: Sample number (The samples come from different or the same window)
-% - 1: One column
-% - P: Patient number
-% Samples and patients must be the same amount
-% varargin:
-% - database : it specifies the open data based used. Number of patients,
-%              trials differ form each other.
-%              - 1: DEAP
-%              - 2: MAHNOB
-%              - 3: WESAD
-% - model : it specifies the subject model
-%              - 0: Subject-dependent
-%              - 1: Subject-independent
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 clear
 clc
 
-load('data16.mat');
+for s = 1:15
 
-% Convertimos nuestros datos a matrices tridimensionales
-
-n = 1;
+    load('datos_amusement.mat');
   
-% Fea = features - SxFxP
+    % Fea = features - SxFxP
 
-Fea = data{1,n}.features(:,1:25);
-Fea(:,:,2) = data{1,n}.features(:,1:25);
+    Fea = data{s}.features(:,1:25);
+    Fea(:,:,2) = data{s}.features(:,1:25);
+
+    % Lab = labels - Sx1xP
+
+    Lab = data{s}.features(:,26);
+    Lab(:,:,2) = data{s}.features(:,26);
+
+    results_amusement(s) = trainModels(Fea, Lab, 'database', 3, 'model', 0);
+
+ end
+
+for s = 1:15
+
+    load('datos_stress.mat')
     
-% Las últimas columnas de data.features representan
-% 26: self-reports
-% 27: estados inducidos
+    % Fea = features - SxFxP
 
-% Lab = labels - Sx1xP
+    Fea = data{s}.features(:,1:25);
+    Fea(:,:,2) = data{s}.features(:,1:25);
 
-Lab = data{1,n}.features(:,26);
-Lab(:,:,2) = data{1,n}.features(:,26);
+    % Lab = labels - Sx1xP
 
-result = trainModels(Fea, Lab, 'database', 3, 'model', 0);
+    Lab = data{s}.features(:,26);
+    Lab(:,:,2) = data{s}.features(:,26);
+
+    results_stress(s) = trainModels(Fea, Lab, 'database', 3, 'model', 0);
+
+end
