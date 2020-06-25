@@ -4,12 +4,10 @@ function TINN = TINN_funct(pulsos_totales, numero_de_pulso)
     
 i = 2:pulsos_totales;
 
+z = 1;
 for i = 2:pulsos_totales
-    IBIs(i-1) = (1/64)*numero_de_pulso(i) - (1/64)*numero_de_pulso(i-1);
-end
-
-for i = 2:length(IBIs)
-    matriz_HRV1(i-1) = abs(IBIs(i) - IBIs(i-1));
+    matriz_HRV1(z) = (1/64)*numero_de_pulso(i)-(1/64)*numero_de_pulso(i-1);
+    z = z + 1;
 end
 
 matriz_HRV = matriz_HRV1.*100; % Aproximación al segundo decimal
@@ -44,7 +42,7 @@ end
 
 % Minimum square difference para hallar el triángulo - las ventanas de 16
 % segundos siempre tienen valores mínimos de 1 repetición, por lo que éste
-% ha sido el corte en nuestra función para hallar el triángulo
+% ha sido el corte en nuestra función
 
 F = 2;
 triangulo_encontrado = 0;
