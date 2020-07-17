@@ -12,11 +12,12 @@ clear
 clc
 
 cd;
-carpeta_archivos = cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+%carpeta_archivos = cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+carpeta_archivos =  uigetdir;
 
 if strcmp(carpeta_archivos,cd)==1
 else
-    carpeta_archivos = cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+    %carpeta_archivos = cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
 end
 
 archivos = ls(carpeta_archivos); 
@@ -37,8 +38,8 @@ for i = 1:length(archivos)
     if(strcmp(archivos(i),'S') == 1)
        
         sujeto = sujeto + 1;
-        
-        cd('C:\Users\AAS\Documents\UC3M\4o Curso\TFG\2a tarea 07-02-2020\WESAD');
+        fprintf('Sujeto: %d \n',sujeto);
+       cd(carpeta_archivos);
         archivo = cd(archivos(i,:));
             
         %
@@ -52,7 +53,7 @@ for i = 1:length(archivos)
         % Volvemos a la carpeta de archivos inicial
         %
         
-        cd('C:\Users\AAS\Documents\GitHub\BINDI_TFGs\TFG_Antonio\Funciones');
+        cd('C:\Users\jocol\Desktop\REPO\BINDI_TFGs\TFG_Antonio\Funciones');
         
         %
         % N de ventanas temporales de la señal escogida
@@ -71,6 +72,7 @@ for i = 1:length(archivos)
             caracteristica_F = calculo_caracteristicas_Fdomain(HRV, vector_pos);
             [label_VA, label_estado, label_amusement, label_stress] = get_label(j, ventanas, VA, b, s, m1, a, m2);
             rqa = no_lineales(j, ventanas, signal.wrist.BVP);
+            fprintf('W%d \n',j);
             
             %
             % No puedo hacer un plot con este método de ejecución, el
@@ -127,8 +129,8 @@ for i = 1:length(archivos)
                 
                 %data{sujeto}.features(ventana,26) = label_VA;
                 %data{sujeto}.features(ventana,27) = label_estado;
-                data{sujeto}.features(ventana,27) = label_amusement;
-                data{sujeto}.features(ventana,28) = label_stress;
+                %data{sujeto}.features(ventana,27) = label_amusement;
+                data{sujeto}.features(ventana,27) = label_VA;
                 
                 ventana = ventana + 1;
             end

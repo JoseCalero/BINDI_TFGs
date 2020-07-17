@@ -31,42 +31,47 @@ end
 %
 
 for n = 1:5
-    if (valence(n)>=7 && arousal(n)>=7)
-        VA(n) = 1; %1er cuadrante - HVHA
-    end
-
-    if (4<=valence(n) && valence(n)<=6 && arousal(n)>=7)
-        VA(n) = 2; %2o cuadrante - MVHA
-    end
-    
-    if (valence(n)<=3 && arousal(n)>=7)
-        VA(n) = 3; %3er cuadrante - LVHA
-    end
-    
-    if(valence(n)<=3 && 4 <= arousal(n) && arousal(n)<=6)
-        VA(n) = 4; %4o cuadrante - LVMA
-    end
-
-    if (4<=valence(n) && valence(n)<=6 && 4<=arousal(n) && arousal(n)<=6)
-        VA(n) = 5; %5o cuadrante - MVMA
-    end
-    
-    if (valence(n)>=7 && 4<=arousal(n) && arousal(n)<=6)
-        VA(n) = 6; %6o cuadrante - HVMA
-    end
-    
-    if(valence(n)>=7 && arousal(n)<=3)
-        VA(n) = 7; %7o cuadrante - HVLA
-    end
-
-    if (4<=valence(n) && valence(n)<=6 && arousal(n)<=3)
-        VA(n) = 8; %8o cuadrante - MVLA
-    end
-    
-    %%%% No hay ningún valor en este cuadrante en todo el experimento %%%%
-    if (valence(n)<=3 && arousal(n)<=3)
-        VA(n) = 9; %9o cuadrante - LVLA
-    end
+        if(valence(n)<5 && arousal(n)>=5)
+            VA(n) = 2;
+        else 
+           VA(n) = 1;
+        end;
+%     if (valence(n)>=7 && arousal(n)>=7)
+%         VA(n) = 1; %1er cuadrante - HVHA
+%     end
+% 
+%     if (4<=valence(n) && valence(n)<=6 && arousal(n)>=7)
+%         VA(n) = 2; %2o cuadrante - MVHA
+%     end
+%     
+%     if (valence(n)<=3 && arousal(n)>=7)
+%         VA(n) = 3; %3er cuadrante - LVHA
+%     end
+%     
+%     if(valence(n)<=3 && 4 <= arousal(n) && arousal(n)<=6)
+%         VA(n) = 4; %4o cuadrante - LVMA
+%     end
+% 
+%     if (4<=valence(n) && valence(n)<=6 && 4<=arousal(n) && arousal(n)<=6)
+%         VA(n) = 5; %5o cuadrante - MVMA
+%     end
+%     
+%     if (valence(n)>=7 && 4<=arousal(n) && arousal(n)<=6)
+%         VA(n) = 6; %6o cuadrante - HVMA
+%     end
+%     
+%     if(valence(n)>=7 && arousal(n)<=3)
+%         VA(n) = 7; %7o cuadrante - HVLA
+%     end
+% 
+%     if (4<=valence(n) && valence(n)<=6 && arousal(n)<=3)
+%         VA(n) = 8; %8o cuadrante - MVLA
+%     end
+%     
+%     %%%% No hay ningún valor en este cuadrante en todo el experimento %%%%
+%     if (valence(n)<=3 && arousal(n)<=3)
+%         VA(n) = 9; %9o cuadrante - LVLA
+%     end
 end 
 
 VA_ = VA;
